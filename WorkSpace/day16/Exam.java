@@ -52,5 +52,6 @@ public class Exam {
             }
         });
         System.out.println(array4);
+        System.out.println();
     }
 }
