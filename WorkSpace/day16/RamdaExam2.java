@@ -3,6 +3,7 @@ package day16;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Consumer;
 
 public class RamdaExam2 {
     public static void main(String[] args) {
@@ -19,6 +20,9 @@ public class RamdaExam2 {
         //람다 방식으로 문자 역순 정렬
         names.sort(((o1, o2) -> o2.compareTo(o1)));
         System.out.println(names);
+
+        Consumer<String> printName = name -> System.out.println(name);
+        names.forEach(printName);
 
 
     }

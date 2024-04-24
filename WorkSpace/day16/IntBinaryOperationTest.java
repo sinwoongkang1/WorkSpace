@@ -1,5 +1,7 @@
 package day16;
 
+import java.util.function.Consumer;
+
 public class IntBinaryOperationTest {
     public static void main(String[] args) {
         IntBinaryOperation test = new IntBinaryOperation() {
@@ -24,6 +26,8 @@ public class IntBinaryOperationTest {
         IntBinaryOperation bSum = ((a, b) -> a+b+a+b);
         System.out.println(bSum.apply(10,3));
 
+        Consumer<String> printer = s -> System.out.println(s);
+        printer.accept("hello");
 
     }
 }
