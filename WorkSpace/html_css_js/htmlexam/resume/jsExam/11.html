@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "btn1">클릭</button>
+    <button id = "btn2">초기화</button>
+    <script>
+function changeColor(event){
+    
+    const r = Math.random()*256;
+    const g = Math.random()*256;
+    const b = Math.random()*256;
+    document.body.style.backgroundColor = `rgb(${r},${g},${b})`;
+   
+}
+function removeColor(){
+
+    document.body.style.backgroundColor = `rgb(255,255,255)`;
+}
+const btnclk = document.getElementById("btn1");
+const btnclk2 = document.getElementById("btn2");
+btnclk.addEventListener("click",changeColor);
+btnclk2.addEventListener("click",removeColor);
+
+    </script>
+</body>
+</html>

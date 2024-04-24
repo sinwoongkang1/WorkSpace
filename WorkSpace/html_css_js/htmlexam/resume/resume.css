@@ -1,0 +1,78 @@
+body{
+    width: 1000px;
+    margin : auto;
+    border : 3px solid black;
+}
+.first{
+    overflow: hidden;
+}
+.faceimage{
+    float: left;
+    padding-left : 50px;
+    margin-top: 40px;
+}
+.name{
+text-align: right;
+font-size: 55px;
+font-style: italic;
+font-weight: bold;
+margin-top: 100px;
+margin-bottom: 5px;
+margin-right : 50px;
+}
+.lang{
+    text-align: right;
+    font-size: 35px;
+    font-style: italic;
+font-weight: bold;
+margin-top: 0px;
+padding-top : 0px;
+margin-bottom: 5px;
+margin-right : 50px;
+}
+h2{
+    border-bottom: 1px solid white;
+    text-align: left;
+    font-style : italic;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+footer{
+    border-top: 2px solid black;
+    text-align: center;
+    font-weight : bold;
+}
+
+.Introduce{
+    text-align: center;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+.java{
+
+   text-align: center;
+   margin-bottom: 0px;
+   padding-bottom: 0px;
+   padding-top: 30px;
+}
+.c1{
+    float: left;
+}
+.c2{float:right;}
+
+.c3{
+    float: left;
+}
+.c4{float:right;
+}
+.a1{
+    overflow: hidden;
+    margin-left: 70px;
+    margin-right: 70px;
+}
+.act{
+    padding-top: 1px;
+    padding-bottom: 20px;
+    margin-left: 70px;
+}

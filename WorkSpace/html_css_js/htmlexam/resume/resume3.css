@@ -1,0 +1,121 @@
+.topbox{
+    width:1300px;
+    height: 320px;
+    text-align: center;
+    margin : auto ;
+    padding : 0px;
+    background-color: black;
+    
+}
+
+.face{
+    width: 600px;
+    height: 50px;
+    display : inline-block;
+    background-color: black;
+    margin : auto;
+    margin-top: 45px;
+    text-align: left;
+    padding-top : 0px;
+    color : white ;
+    position: sticky;
+
+}
+.name{
+    width: 600px;
+    height: 140px;
+    display : inline-block;
+    background-color: black;
+    color : white;
+    margin : auto;
+    text-align: right;
+    padding-top : 100px;
+    font-style: italic;
+    font-weight: bolder;
+    border-bottom : 3px solid white;
+    font-size: 50px;
+}
+.mebox{
+    width:1300px; 
+    height: 270px;
+    margin : auto;
+    background-color: black;
+
+}
+.aboutme{
+    width:1210px; 
+    height: 250px;
+    background-color: black;
+    margin : auto;
+    margin-top: 0px;
+    padding : 0px;
+    border : 3px solid white;
+    text-align: center;
+    color :whitesmoke;
+    font-size: 33px;
+}
+.middlebox{
+    color : white;
+    font-size: 40px;
+    width:1300px;
+    height:850px;
+    background-color: black;
+    text-align: center;
+    margin : auto;
+}
+.upleft{
+    width: 600px;
+    height: 400px;
+    background-color: black;
+    margin-top: 3px;
+    margin-bottom: 0px;
+    margin-right : 0 ;
+    position: relative;
+    display : inline-block ;
+    border : 3px solid white;
+}
+.upright{
+    width: 600px;
+    height: 400px;
+    background-color: black;
+    margin-top: 3px;
+    position: relative;
+    margin-bottom: 0px;
+    display : inline-block ;
+    border : 3px solid white;
+
+}
+.downright{
+    width: 600px;
+    height: 400px;
+    background-color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    display : inline-block ;
+    border : 3px solid white;
+}
+.downleft{
+    width: 600px;
+    height: 400px;
+    background-color: black;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    position: relative;
+    display : inline-block ;
+    border : 3px solid white;
+    margin-left : 0;
+}
+
+footer{
+    width: 1300px;
+    height: 180px;
+    font-size : 25px;
+    font-weight: bold;
+    line-height: 20px;
+    color : whitesmoke ;
+    text-align: center;
+    background-color: black;
+    margin : auto;
+    border : 3px solid white;
+}
