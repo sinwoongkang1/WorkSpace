@@ -14,7 +14,7 @@ import static project.chatServerProject.chatOption.*;
 public class ChatServer {
     static Map<String, PrintWriter> allClients = new HashMap<>();
     static ArrayList<Map<String, Integer>> chatRoomList = new ArrayList<>();
-//    static Map<String, Integer> chatRoom = new HashMap<>();
+    static Map<String, Integer> chatRoom = new HashMap<>();
     public static void main(String[] args) {
         try (
             ServerSocket serverSocket = new ServerSocket(12345);
@@ -29,6 +29,15 @@ public class ChatServer {
             e.printStackTrace();
         }
     }
+////    생성된 방 목록을 출력하는 메서드
+//    public static String getRoomNumbers() {
+//        int[] roomNumbers = new int[chatRoom.size()];
+//        int index = 0;
+//        for (int roomNumber : chatRoom.values()) {
+//            roomNumbers[index++] = roomNumber;
+//        }
+//        return Arrays.toString(roomNumbers);
+//    }
     //방 생성 메서드
 //    public static void createChatRoom(String roomName, int roomNum) {
 //        Map<String, Integer> room = new HashMap<>();
@@ -37,7 +46,7 @@ public class ChatServer {
 //        System.out.println("방 번호 " + roomNum + " 가 생성되었습니다.");
 ////        System.out.println(chatRoomList);
 //    }
-    //리스트에서 같은 방 번호로 저장된 key들 에게만 메시지 전송 메서드
+    //리스트에서 같은 방 번호(key)로 저장된 id 들 에게만 메시지 전송 메서드
 //public static void broadcastToRoom(int roomNumber, String message) {
 //    for (Map<String, Integer> room : chatRoomList) {
 //        if (room.containsValue(roomNumber)) {
@@ -51,7 +60,6 @@ public class ChatServer {
 //    }
 //}
 }
-
 class ChatThread extends Thread {
 Socket socket;
 String id;
@@ -102,6 +110,10 @@ PrintWriter printWriter;
         try{
             String line = null;
             while ( (line = bufferedReader.readLine()) != null ) {
+//                if (line.startsWith("/list")){
+//                    printWriter.println(ChatServer.getRoomNumbers());
+//                    System.out.println(ChatServer.getRoomNumbers()); //서버에도 출력
+//                }
 //                if(line.startsWith("/create")){
 //                    Integer roomNum = Integer.valueOf(bufferedReader.readLine());
 //                    System.out.println(roomNum+" 번 채팅방이 생성되었습니다.");
@@ -123,6 +135,7 @@ PrintWriter printWriter;
 
         } catch (SocketException socketException){
             System.out.println(id +" 닉네임의 사용자가 연결을 끊었습니다");
+            broadCast(id + " 닉네임의 사용자가 접속을 종료했습니다");
         } catch(Exception e){
             e.printStackTrace();
         }

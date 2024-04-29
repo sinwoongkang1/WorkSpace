@@ -30,11 +30,11 @@ public class chatClient {
             //써서 내보내기
             String line = null;
             while ((line = keyboard.readLine()) != null){
-//                if(line.equals("/bye")) {
-//                    System.out.println("연결을 종료합니다.");
-//                    System.exit(1);
-//                    break;
-//                }
+                if(line.equals("/bye")) {
+                    System.out.println("연결을 종료합니다.");
+                    System.exit(1);
+                    break;
+                }
 //                if(line.equals("/create")){
 //                    printWriter.println(line);
 //                    System.out.println("생성할 방 번호를 입력하세요");
@@ -44,12 +44,12 @@ public class chatClient {
 //                    printWriter.println("/list"); //서버에 /list를 보낸다.
 //                    System.out.println("생성된 채팅방 : "+bufferedReader.readLine()); // 받은 방 목록을 출력합니다.
 //                }
-                if(line.startsWith("/join")) {
-                    System.out.println("참가할 방 번호를 입력하세요");
-                    printWriter.println(keyboard.readLine()); // 참가할 방 번호를 보낸다.
-                    printWriter.println("/join"); // 서버에 /join 을 보낸다.
-                    System.out.println(bufferedReader.readLine());// 1 번 채팅방에 참가합니다 출력
-                }
+//                if(line.startsWith("/join")) {
+//                    System.out.println("참가할 방 번호를 입력하세요");
+//                    printWriter.println(keyboard.readLine()); // 참가할 방 번호를 보낸다.
+//                    printWriter.println("/join"); // 서버에 /join 을 보낸다.
+//                    System.out.println(bufferedReader.readLine());// 1 번 채팅방에 참가합니다 출력
+//                }
                     printWriter.println(line);
 
             }

@@ -17,8 +17,8 @@ public class chatOption {
     //공백을 기준으로 단어를 자르고 배열로 저장
     public static ArrayList<String> doNotUserWord(ArrayList<String> arrayList) {
     ArrayList<String> bannedWords = new ArrayList<>();
-        bannedWords.add("pizza");
-        bannedWords.add("hamburger");
+        bannedWords.add("에스파");
+        bannedWords.add("개저씨");
         for (int i = 0; i < arrayList.size(); i++) {
             for (int j = 0; j < bannedWords.size(); j++) {
                 if(arrayList.get(i).toLowerCase().equals(bannedWords.get(j))){
