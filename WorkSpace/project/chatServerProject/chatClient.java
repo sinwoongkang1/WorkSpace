@@ -1,5 +1,7 @@
 package project.chatServerProject;
 
+import day15.ChatClient;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -20,49 +22,36 @@ public class chatClient {
                 ){
             System.out.println("채팅방에서 사용할 닉네임을 입력해주세요");
             String myNickName = keyboard.readLine();
-            printWriter.println(myNickName);
-            //서버로 읽어오기
-            String firstId = bufferedReader.readLine();
-            if (firstId.length()>0) {
-                System.out.println("처음 생성할 채팅방 번호를 입력해주세요");
-                int roomNumber = Integer.parseInt(keyboard.readLine());
-                printWriter.println(roomNumber);
-            }
+            printWriter.println(myNickName); //사용자가 출력할 경우 대기상황 발생
+            System.out.println(bufferedReader.readLine()); // 서버에서 받아오는게 낫다
             ClientThread clientThread = new ClientThread(socket,bufferedReader);
             clientThread.start();
 
             //써서 내보내기
             String line = null;
             while ((line = keyboard.readLine()) != null){
-                if(line.equals("/bye")) {
-                    System.out.println("연결을 종료합니다.");
-                    System.exit(1);
-                    break;
-                }
-                if(line.equals("/create")){
-                    printWriter.println(line);
-                    System.out.println("생성할 방 번호를 입력하세요");
-                    int newRoomNumber = Integer.parseInt(keyboard.readLine());
-                    printWriter.println(newRoomNumber);
-                }
-                if(line.equals("/list")){
-                    printWriter.println("/list"); //서버에 /list를 보낸다.
-                    String rooms = bufferedReader.readLine(); // 서버로부터 방 목록을 받습니다.
-                    System.out.println(rooms); // 받은 방 목록을 출력합니다.
-                }
+//                if(line.equals("/bye")) {
+//                    System.out.println("연결을 종료합니다.");
+//                    System.exit(1);
+//                    break;
+//                }
+//                if(line.equals("/create")){
+//                    printWriter.println(line);
+//                    System.out.println("생성할 방 번호를 입력하세요");
+//                    printWriter.println(keyboard.readLine());
+//                }
+//                if(line.equals("/list")){
+//                    printWriter.println("/list"); //서버에 /list를 보낸다.
+//                    System.out.println("생성된 채팅방 : "+bufferedReader.readLine()); // 받은 방 목록을 출력합니다.
+//                }
                 if(line.startsWith("/join")) {
-                    printWriter.println("/join");
-                    System.out.println(bufferedReader.readLine());
-                    String userInput;
-                    while ((userInput = keyboard.readLine()) != null) {
-                        printWriter.println(userInput);
-                    }
+                    System.out.println("참가할 방 번호를 입력하세요");
+                    printWriter.println(keyboard.readLine()); // 참가할 방 번호를 보낸다.
+                    printWriter.println("/join"); // 서버에 /join 을 보낸다.
+                    System.out.println(bufferedReader.readLine());// 1 번 채팅방에 참가합니다 출력
+                }
+                    printWriter.println(line);
 
-                }
-                String userInput;
-                while ((userInput = keyboard.readLine()) != null) {
-                    printWriter.println(userInput);
-                }
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -89,4 +78,5 @@ class ClientThread extends Thread {
             e.printStackTrace();
             }
         }
+
     }

@@ -11,6 +11,7 @@ public class chatOption {
         for (String word : words) {
             wordList.add(word);
         }
+
         return wordList;
     }
     //공백을 기준으로 단어를 자르고 배열로 저장
@@ -27,7 +28,7 @@ public class chatOption {
         }
         return arrayList;
     }
-// 욕설을 포함한 단어를 검색하여 **** 로 변환
+// 사용 금지 단어를 검색하여 **** 로 변환
 
     public static void makeSentence (ArrayList<String> wordList) {
         StringBuilder sentenceBuilder = new StringBuilder();
