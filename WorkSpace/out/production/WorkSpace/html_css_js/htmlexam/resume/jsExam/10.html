@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <h2 id="number">0</h2>
+    <div>
+      <button id="increase">+1</button>
+      <button id="decrease">-1</button>
+    </div>
+
+    <script>
+
+
+        const btnP = document.getElementById("increase");
+        const btnM = document.getElementById("decrease");
+        const value = document.getElementById("number");
+    
+
+        function plus() {
+            const current = parseInt(number.innerText);
+            number.innerText = current+1;
+        }
+        function minus() {
+            const current = parseInt(number.innerText);
+            number.innerText = current-1;
+        } 
+        
+        btnP.addEventListener("click",plus);
+        btnM.addEventListener("click",minus);
+
+    </script>
+  </body>
+</html>

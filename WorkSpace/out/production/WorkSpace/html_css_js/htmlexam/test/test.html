@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Test</title>
+    <meta charset="UTF-8" />
+    <style>
+      .home {
+    width: 600px;
+    height: 100px;
+    background-color: rgb(103, 147, 212);
+    text-align: center;
+    margin : auto;
+}
+#todo {
+  width: 600px;
+    height: 400px;
+    background-color: rgb(232, 237, 243);
+    text-align: center;
+    margin : auto;
+    
+}
+    </style>
+  </head>
+
+  <body>
+    <div class="home">
+      <h1>To do List</h1>
+      <input id="input_value"></input>
+      <button id = "btn">추가</button>
+      <br>
+      </div>
+      <div id="todo">
+      </div>
+
+    <script>
+
+        let basicData = [
+            {id:1, title:"Todo1",done :false},
+            {id:2, title:"Todo2",done :false},
+        ];
+
+        const btn1 = document.getElementById("btn1");
+        const input_value = document.getElementById("input_value");
+        const todo = document.getElementById("todo");
+
+        function plus() {
+        todo.innerHTML = input_value.value;
+        }
+      
+        btn.addEventListener("click",plus);
+       
+
+    </script>
+  </body>
+</html>

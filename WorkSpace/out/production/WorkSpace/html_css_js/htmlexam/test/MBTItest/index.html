@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container">
+    <article class="start">
+        <h1 class="mt-5 text-center">나와 비슷한 유형의 축구 선수는 ??</h1>
+        <button type="button" class="btn btn-danger mt-5" onclick ='start();'>테스트 시작하기</button>
+    </article>
+    <article class="question">
+    <div class="progress mt-5" role="progressbar" aria-label="Basic example" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div class="progress-bar" style="width: calc(100/12*1%)"></div>
+    </div>
+        <h2 id="title" class ="text-center mt-5">문제</h2>
+        <input id="type" type="hidden" value="EI">
+        <button id="A" type="button" class="btn btn-danger mt-5">A</button>
+        <button id="B" type="button" class="btn btn-danger mt-5">B</button>
+    </article>
+
+    <article class="result">
+<img id="img" class = "rounded-circle mt-5" src="/htmlexam/test/MBTItest/dog-4398243_640.jpg" alt="animal">
+<h2 id="animal" class="text-center mt-5">동물이름</h2>
+<h3 id="explain" class="text-center mt-5">설명</h3>
+    </article>
+
+
+<input type="hidden" id="EI" value="0">
+<input type="hidden" id="SN" value="0">
+<input type="hidden" id="TF" value="0">
+<input type="hidden" id="JP" value="0">
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+
+var num = 1;
+var q = {
+    1: { "title" :"문전 앞에서 우리편 윙어가 올린 크로스가 애매한 가슴 위치로 왔다!!","type" : "EI", "A":"최대한 헤딩으로 득점을 노린다", "B":"가슴 트래핑하여 공을 발로 컨트롤한다"},
+    2: { "title" :"2:1 패스로 문전 앞까지 도착! 골대와의 거리는 20m 슛팅기회!!","type" : "EI", "A":"발등으로 정확한 임팩트를 노린 중거리 슛", "B":"키퍼가 손댈 수 없는 구석으로 정확한 감아차기"},
+    3: { "title" :"상대편의 실수로 키퍼와 1:1 찬스, 그런데 키퍼와의 거리가 매우 가깝다!!","type" : "EI", "A":"키퍼의 가랑이, 사이드 빈틈을 골라 내가 마무리한다.", "B":"더 좋은 득점 찬스가 있는 동료를 찾아 패스한다."},
+    4: { "title" :"나의 터치 실수로 볼을 빼앗겼지만 바로 우리팀 선수가 압박이 가능한 상황에서...?","type" : "SN", "A":"내 실수는 내가 커버한다 상대방을 끝까지 따라간다", "B":"압박 가능한 동료를 믿고 공간을 만드는 움직임을 위해 상대편과 떨어진다."},
+    5: { "title" :"볼 경합 과정에서 상대편과 몸싸움으로 볼을 탈취당하고 넘어졌다!!!","type" : "SN", "A":"벌떡 일어나 바로 몸싸움 하러 갈 준비를 한다", "B":"최대한 아픈척 하며 주심을 처다본다"},
+    6: { "title" :"눈앞에서 같은 팀 동료를 고의적으로 상대편이 가격했다.","type" : "SN", "A":"등번호를 머리에 세기고 다음 플레이때 복수할 타이밍을 찾는다", "B":"경기를 중단하라고 레프리를 향해 소리친다."},
+    7: { "title" :"전날 과음한 당신... 하지만 감독님은 4쿼터중 4쿼터를 배정하였다!!!","type" : "TF", "A":"감독님의 지시에 따라 모든 경기를 뛴다.", "B":"상태를 솔직히 말씀드리고 컨디션을 조정한다."},
+    8: { "title" :"감독님이 짜놓은 포시션을 확인했더니, 당신이 처음 해보는 포지션에 배치되어있다!!!","type" : "TF", "A":"감독님께 당신의 주 포시션을 어필하며, 다른 포지션은 소화할 수 없다고 한다.", "B":"감독님의 결정에는 뜻이 있을거라 생각하고 받아들인다."},
+    9: { "title" :"오늘따라 패스,터치,슛팅, 등등... 하고싶은대로 플레이가 안되고 실수가 잦다.","type" : "TF", "A":"다음 게임에는 이러지 않도록 개인 훈련을 해야겠다고 다짐한다.", "B":"상대방 압박이 좋고 우리편 패스도 엉망인게 분명하다."},
+    10: { "title" :"상대팀 수준이 우리팀 수준보다 떨어지는게 확실하다!! 1쿼터 현재 스코어 8:0 인 상황","type" : "JP", "A":"평소에 안하던 개인기로 상대방을 농락해보자", "B":"팀 조직력을 연습할 기회! 최대한 패스 플레이"},
+    11: { "title" :"애매한 높이로 날라오는 공을 터치하려다 실수로 공이 손에 맞았다!!!","type" : "JP", "A":"손을 몸통에 붙였다고 우기며 경기를 계속 진행한다", "B":"솔직하게 핸드볼은 인정하고 레프리에게 공을 넘긴다."},
+    12: { "title" :"치열한 0:0 상황에서 4쿼터 종료직전, 당신이 결승골을 넣었다!!! ","type" : "JP", "A":"온갖 세레모니를 하며 기쁨을 만끽한다.", "B":"덤덤하게 골을 들고 중앙선으로가서 공을 놓는다."}
+}
+
+    var result = {
+        "INTJ" : {"animal":"야누자이","explain":"근본이 부족한 당신... 축구의 의미에 대해 좀 더 고민해보자","img":"https://i.namu.wiki/i/HcxI-idBFRDcxU9ObarWpvfwnnHkruqImBcJ2Si40WyQhkJlGPlnYk12IdnqbEmuXmqENxuH-Sru7Bo9HJH-bQ.webp"},
+        "INTP" : {"animal":"우레이","explain":"실력이 부족한 당신... 개인 훈련에 좀 더 매진해보자","img":"https://cdn.mhnse.com/news/photo/202201/94440_75627_1012.jpg"},
+        "ENTJ" : {"animal":"아자르","explain":"자기관리가 부족한 당신... 과거의 영광보다 현재를 살피자","img":"https://talksport.com/wp-content/uploads/sites/5/2019/12/NINTCHDBPICT000543126715.jpg?strip=all&w=960&quality=100"},
+        "ENTP" : {"animal":"호날두","explain":"운도 실력이다... 주변을 잘 살피자","img":"https://cdnimage.dailian.co.kr/news/201606/news_1466384892_577639_m_1.jpg"},
+        "INFJ" : {"animal":"파투","explain":"일단 내가 골을 넣어야 만족하는 당신... 주변 팀원들의 플레이도 좀 보자","img":"https://image.xportsnews.com/contents/images/upload/article/2015/0123/1421993965124.jpg"},
+        "INFP" : {"animal":"이과인","explain":"실수 10개는 다 잊고 잘 한 것만 떠오르는 당신... 팀원들에게 평가를 들어보자","img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTscBe_s6tHJx78haiq0Gz0YUh1_Hu3meB_dQegjnK_NA&s"},
+        "ENFJ" : {"animal":"팔카오","explain":"생각보다 숨이 빨리 차오르는 당신... 주말에 개인 운동을 좀 더 하자","img":"https://thumb.mtstarnews.com/06/2019/03/2019032811401561527_1.jpg/dims/optimize"},
+        "ENFP" : {"animal":"린가드","explain":"겉멋에 환장하는 당신... 좀 더 생산적인 플레이를 해보자","img":"https://ilyo.co.kr/contents/article/images/2017/1025/1508893896438818.jpg"},
+        "ISTJ" : {"animal":"델리알리","explain":"축구 말고도 하고 싶은게 많은 당신... 좀 더 축구에 집중해보자","img":"https://i.namu.wiki/i/eELKS3K4okJk3RoCqwbbuv5Nhu-FLgY_A8PjDhSAvHM-3fY-YI85f4Zaf9bARr0BarG9ozqvyXCjHx8OTFeMfQ.webp"},
+        "ISFJ" : {"animal":"콰레스마","explain":"내가 잘 하는것만 하고 싶은 당신... 개인 훈련으로 다른 특기도 개발해보자","img":"https://i.namu.wiki/i/9undEY0e0zFLv4C1HH04YiQ7ow0YKXzfqKZFzCupdGg7adB9ckXbuZHxgBcPgDlDgnuqlGgtJvf2_gwWbb5cXQ.webp"},
+        "ESTJ" : {"animal":"발로텔리","explain":"축구고 뭐고 그냥 튀고 싶은 당신... SNS를 끊도록 하자","img":"https://i.namu.wiki/i/pq-OF4yKeBqD1RWENFbMudYQMcX3qDO9aRq7AnWzjURzpm7VQCfHBhKv5NgmltimGJ91yWYYKhzfn-d22puA9A.webp"},
+        "ESFJ" : {"animal":"아델 타랍","explain":"팀이 져도 내가 이기면 기쁜 당신... 주변 사람들에게 잘 하자","img":"https://file.osen.co.kr/article_thumb/2012/07/24/201207240501775162_1_300x.jpg"},
+        "ISTP" : {"animal":"토레스","explain":"한방에 모든걸 거는 당신... 기본적인 패스의 중요함을 잊지말자","img":"https://thumb.mt.co.kr/06/2011/09/2011091915055199604_2.jpg"},
+        "ISFP" : {"animal":"박주영","explain":"실력보다 운에 의존하는 당신... 종교보다 실력을 키우자","img":"https://www.cctimes.kr/news/photo/200809/121386_26166_269.jpg"},
+        "ESTP" : {"animal":"디마리아","explain":"공차는 것보다 온갖 잡생각이 많은 당신... 빠따를 쳐줄 선배를 찾아보자","img":"https://www.interfootball.co.kr/news/photo/202103/523339_432550_220.jpg"},
+        "ESFP" : {"animal":"오웬","explain":"너무나도 나약한 당신... 축구보다 일상을 위해 운동을 열심히 하자","img":"https://thumbnews.nateimg.co.kr/view610///onimg.nate.com/orgImg/sk/2010/10/28/SK00701_20101028_280101.jpg"},
+
+    }
+
+
+    function start() {
+        $(".start").hide();
+        $(".question").show();
+        next();
+    };
+    $("#A").click(function(){
+       var type = $("#type").val();
+       var preValue = $("#"+type).val();
+       $("#"+type).val(parseInt(preValue)+1);
+       next();
+    });
+    $("#B").click(function(){
+        next();
+    })
+
+    function next(){
+        if (num==13) {
+            $(".question").hide();
+            $(".result").show();
+            var mbti = "";
+            ( $("#EI").val() <2) ? mbti += "I" : mbti += "E" ;
+            ( $("#SN").val() <2) ? mbti += "N" : mbti += "S" ;
+            ( $("#TF").val() <2) ? mbti += "F" : mbti += "T" ;
+            ( $("#JP").val() <2) ? mbti += "P" : mbti += "J" ;
+            $("img").attr("src",result[mbti][img]);
+            $("#animal").html(result[mbti]["animal"]);
+            $("#explain").html(result[mbti]["explain"]);
+        } else {
+        $(".progress-bar").attr('style','width: calc(100/12*'+num+'%)');
+        $("#title").html(q[num]["title"]);
+        $("#type").val(q[num]["type"] );
+        $("#A").html(q[num]["A"]);
+        $("#B").html(q[num]["B"]);
+        num++;
+        }
+        
+    }
+</script>
+</body>
+</html>

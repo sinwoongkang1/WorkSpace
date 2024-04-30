@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--문제 1: 배열의 모든 요소 출력하기
+
+     <script>
+function printArray(array){
+    for (i=0;i<array.length;i++){
+        console.log(array[i]);
+    }
+}
+const numbers = [1,2,3,4,5]
+printArray(numbers);
+    </script> -->
+
+    <!--문제 2: 객체의 모든 프로퍼티와 값 출력하기
+
+<script>
+    function printObject (object) {
+        for(let key in object){
+            console.log(key, object[key]);
+        }
+
+    }
+    const person = {
+        name: '홍길동',
+        age: 25,
+        email: 'hong@example.com'
+      };
+
+      printObject(person);-->
+
+       <!-- 문제 3: 특정 값의 개수 찾기
+
+      const numbers = [1, 3, 7, 8, 3, 3, 4, 3];
+    const targetNumber = 3; 
+
+    <script>
+    function findNumber(array,targetNumber){
+        let find = 0;
+        for (i=0;i<array.length;i++) {
+            if (array[i]===targetNumber) {
+             find ++ ;       
+            }
+        }
+        console.log(find);
+    } 
+
+    const numbers = [1, 3, 7, 8, 3, 3, 4,3];
+    const targetNumber = 3;
+    findNumber(numbers,3);
+    </script> -->
+
+    <!-- 문제 4: 최대값 찾기
+
+    <script>
+function findMax (array) {
+    array.sort();
+    console.log(array[array.length-1]);
+}
+const numbers = [10, 36, 54, 89, 12];
+findMax(numbers);
+
+</script> -->
+
+<!-- 문제 5: 객체 배열에서 특정 조건의 객체 찾기
+
+<script>
+function findXObject (object) {
+    array = [];
+    for (user of users) {
+    if(user.age>=30) {
+       array.push(user.name);
+    }
+} console.log(array);
+}
+
+const users = [
+  { name: 'Alice', age: 25 },
+  { name: 'Bob', age: 30 },
+  { name: 'Charlie', age: 28 },
+  { name: 'Dave', age: 35 }
+];
+
+findXObject(users);
+
+</script>-->
+
+
+</body>
+</html>
