@@ -2,14 +2,16 @@ package org.example.iocexam.service;
 
 import org.example.iocexam.dao.UserDao;
 import org.example.iocexam.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
     //dao 객체가 있어야 정보를 가지고 회원가입을 한다
     private UserDao userDao;
-
-    public UserServiceImpl(UserDao userDao) {
+    @Autowired
+    public UserServiceImpl(@Qualifier("user2DaoImpl") UserDao userDao) {
         this.userDao = userDao;
     }
 

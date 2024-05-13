@@ -1,15 +1,24 @@
 package org.example.iocexam.controller;
 
+import jakarta.annotation.PostConstruct;
 import org.example.iocexam.domain.User;
 import org.example.iocexam.service.UserService;
+import org.springframework.boot.autoconfigure.ssl.SslAutoConfiguration;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class UserController {
+    private final SslAutoConfiguration sslAutoConfiguration;
     private UserService userService;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, SslAutoConfiguration sslAutoConfiguration) {
         this.userService = userService;
+        this.sslAutoConfiguration = sslAutoConfiguration;
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("PostConstruct 실행");
     }
 
     public void joinUser(){
