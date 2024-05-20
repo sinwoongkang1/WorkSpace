@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Example</title>
+</head>
+<body>
+<h1>Thymeleaf Example</h1>
+<!--변수 표현식-->
+<p>username : <span th:text="${username}"></span> </p>
+
+<!--선택변수 표현식-->
+<div th:object="${languages}">
+   Language :  <span th:text="*{[0]}"></span>,<span th:text="*{[1]}"></span>
+</div>
+
+<!--조건에 따른 표현식-->
+<div th:if="${inAdmin}">
+    <p><span th:text="${username}"></span>은 관리자 입니다.</p>
+</div>
+<div th:unless="${inAdmin}">
+    <p><span th:text="${username}"></span>은 관리자가 아닙니다.</p>
+</div>
+
+<!--링크 url 표현식-->
+<a th:href="@{/about}">about</a>
+
+<!--리터럴 값-->
+<p th:text="'welcome'+${username}+'!!'">welcome message</p>
+
+<!--메시지 표현식, 메시지를 와꾸(yml 파일에 message_basename으로 정함
+-> basenanme과 같은 properties 파일을 찾늗다.->내용을 채워넣는다)로 정해놓고 쓴다-->
+<p th:text="#{welcome.message}"></p>
+<p th:text="#{product.name}"></p>
+
+<div th:include = "common/footer ::footer"></div>
+</body>
+</html>

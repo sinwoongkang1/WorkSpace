@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${first}"></h1>
+<ul>
+    <li th:each = "item : ${products}" th:text="' 이름 : '+${item.name}+' 가격 : '+${item.price}"></li>
+
+</ul>
+<div th:include = "common/footer ::footer"></div>
+</body>
+</html>

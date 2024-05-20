@@ -2,11 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org/" >
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Greet</title>
 </head>
 <body>
-<h1>About Spring MVC</h1>
-<h2>How to use Spring MVC</h2>
+<h1 th:text="'Hello, ' + ${name} + '!!!'">I am greet file~!</h1>
+
 <div th:include = "common/footer :: footer"></div>
+
 </body>
 </html>
