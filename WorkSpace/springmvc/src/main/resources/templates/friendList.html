@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>친구 목록</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        th:first-child, td:first-child,
+        th:nth-child(3), td:nth-child(3) {
+            width: 200px;
+        }
+        th:nth-child(2), td:nth-child(2) {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>친구 목록</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>이름</th>
+            <th>이메일</th>
+            <th>별명</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="friend : ${friendList}">
+            <td th:text="${friend.name}"></td>
+            <td th:text="${friend.email}"></td>
+            <td th:text="${friend.nickname}"></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="buttons">
+        <button onclick="window.location.href='/index'">홈으로 돌아가기</button>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/" >
+<head>
+    <meta charset="UTF-8">
+    <title>Visit Counter</title>
+</head>
+<body>
+<h1>세션을 이용한 방문횟수 체크</h1>
+<p>당신은 <span th:text="${session.visitCount}"></span> 번 째 방문자 입니다.</p>
+<p>당신은 <span th:text="${visitCount2}"></span> 번 째 방문자 입니다.</p>
+<!--내장 객체인 session에 직접 접근하여 데이터를 가져온 것-->
+<a th:href="@{resetVisit}">방문자수 초기화</a>
+</body>
+</html>

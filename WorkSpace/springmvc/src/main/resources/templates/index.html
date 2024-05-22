@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>친구 관리 페이지</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            text-align: center;
+        }
+        .profile-picture {
+            width: 500px;
+            height: 700px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <img src="https://i.namu.wiki/i/Hm0qjpnEfjFIWJXt2AkoUj9CeO_iRHFIpKky18jWee2LylK5erojoGtx7atEayAROFzPiaZnmmDXfC47aygW_A.webp" alt="Profile Picture" class="profile-picture">
+    <div class="buttons">
+        <button onclick="window.location.href='/regist'">친구 추가</button>
+        <button onclick="window.location.href='/friendList'">친구 목록</button>
+        <button onclick="window.location.href='/delete'">친구 삭제</button>
+    </div>
+</div>
+</body>
+</html>
