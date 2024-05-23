@@ -22,6 +22,4 @@ public class MyCustomView implements View {
         out.println("<p>Spring Boot Custom View</p>");
         out.println("</body></html>");
     }
-
-
 }
