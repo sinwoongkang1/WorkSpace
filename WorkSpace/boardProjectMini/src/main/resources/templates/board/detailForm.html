@@ -53,9 +53,6 @@
         .back-button {
             background-color: #007bff;
         }
-        .action-button {
-            background-color: #dc3545;
-        }
     </style>
 </head>
 <body>
@@ -70,6 +67,7 @@
     <a href="/board" class="back-button">목록으로</a>
     <a th:href="@{/board/update/{id}(id=${board.id})}" class="back-button">수정하기</a>
     <a th:href="@{/board/delete/{id}(id=${board.id})}" class="back-button">삭제하기</a>
+
 
 </div>
 
