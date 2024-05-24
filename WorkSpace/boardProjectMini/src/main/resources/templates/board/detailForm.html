@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board Detail</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #e6f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .container p {
+            margin: 10px 0;
+            font-size: 16px;
+            text-align: left;
+        }
+        .container p strong {
+            display: inline-block;
+            width: 100px;
+            text-align: left;
+        }
+        .container p span {
+            display: inline-block;
+            text-align: left;
+        }
+        .back-button, .action-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+        .back-button:hover, .action-button:hover {
+            opacity: 0.8;
+        }
+        .back-button {
+            background-color: #007bff;
+        }
+        .action-button {
+            background-color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>게시글 상세보기</h1>
+    <p><strong>작성일:</strong> <span th:text="${board.created_at}"></span></p>
+    <p><strong>작성자:</strong> <span th:text="${board.name}"></span></p>
+    <p><strong>제 목:</strong> <span th:text="${board.title}"></span></p>
+    <p><strong>내 용:</strong> <span th:text="${board.content}"></span></p>
+
+
+    <a href="/board" class="back-button">목록으로</a>
+    <a th:href="@{/board/update/{id}(id=${board.id})}" class="back-button">수정하기</a>
+    <a th:href="@{/board/delete/{id}(id=${board.id})}" class="back-button">삭제하기</a>
+
+</div>
+
+
+</body>
+</html>
