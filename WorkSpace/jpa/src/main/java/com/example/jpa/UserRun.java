@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
+
 public class UserRun {
     public static void main(String[] args) {//factory 를 만들고나서 manager 를 생성한다.
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("UserPU");
@@ -19,6 +20,13 @@ public class UserRun {
         entityManager.getTransaction().begin();
         //영속성 컨텍스트에게 관리를 맏김. (영속 상태)
         entityManager.persist(user); //실행해도 Transaction 때문에 동작은 안함.
+
+
+        User user1 = entityManager.find(User.class, 1L);
+        user1.setEmail("kang@email.com");
+
+
+
 
         //이때 DB에 저장 (영속성이 엔티티를 파악하고 DB와 비교해서 Insert 한다)
         entityManager.getTransaction().commit();

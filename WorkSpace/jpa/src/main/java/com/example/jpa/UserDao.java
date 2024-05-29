@@ -16,9 +16,8 @@ public class UserDao {
             emf.close();
         }
     }
-
     public void createUser(User user){
-        EntityManager entityManager = emf.createEntityManager();
+        EntityManager entityManager = JPAUtil.getEntityManagerFactory().createEntityManager();
         try{
             entityManager.getTransaction().begin();
             entityManager.persist(user);
@@ -30,6 +29,18 @@ public class UserDao {
         }finally {
             entityManager.close();
         }
+
     }
-    
+    public User findUser(Long id){
+        EntityManager em = JPAUtil.getEntityManagerFactory().createEntityManager();
+        try{
+            User user = em.find(User.class, id);
+            em.close();
+            return user;
+        }
+        finally{
+            em.close();
+        }
+
+    }
 }

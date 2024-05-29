@@ -4,9 +4,28 @@
              xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
              version="2.0">
 
+<!--    entity manager 생성을 위한 entity factory 를 생성하기 위한 정보-->
     <persistence-unit name="UserPU" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.example.jpa.User</class>  <!-- Add this line -->
+        <class>com.example.jpa.School</class>  <!-- Add this line -->
+        <class>com.example.jpa.Student</class>  <!-- Add this line -->
+        <class>com.example.jpa.Books</class>  <!-- Add this line -->
+        <class>com.example.jpa.Authors</class>  <!-- Add this line -->
+        <class>com.example.jpa.Employee</class>  <!-- Add this line -->
+        <class>com.example.jpa.Project</class>  <!-- Add this line -->
+        <class>com.example.jpa.Person</class>  <!-- Add this line -->
+        <class>com.example.jpa.Passport</class>  <!-- Add this line -->
+        <class>com.example.jpa.Car</class>  <!-- Add this line -->
+        <class>com.example.jpa.Truck</class>  <!-- Add this line -->
+        <class>com.example.jpa.Vehicle2</class>  <!-- Add this line -->
+        <class>com.example.jpa.Car2</class>  <!-- Add this line -->
+        <class>com.example.jpa.Truck2</class>  <!-- Add this line -->
+        <class>com.example.jpa.Truck3</class>  <!-- Add this line -->
+        <class>com.example.jpa.Car3</class>  <!-- Add this line -->
+        <class>com.example.jpa.Vehicle3</class>  <!-- Add this line -->
+        <class>com.example.jpa.Company</class>  <!-- Add this line -->
+        <class>com.example.jpa.Address</class>  <!-- Add this line -->
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/Mydatabase"/>
