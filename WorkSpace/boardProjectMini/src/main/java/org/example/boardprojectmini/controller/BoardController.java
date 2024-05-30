@@ -64,7 +64,8 @@ public class BoardController {
     }
 
     @PostMapping("/update")
-    public String update(@ModelAttribute("board") Board board,@RequestParam Long id, @RequestParam("password") String password, Model model) {
+    public String update(@ModelAttribute("board") Board board,@RequestParam Long id,
+                         @RequestParam("password") String password, Model model) {
         if (boardService.checkPassword(board.getId(), password)) {
             boardService.saveBoard(board);
             return "redirect:/board";
