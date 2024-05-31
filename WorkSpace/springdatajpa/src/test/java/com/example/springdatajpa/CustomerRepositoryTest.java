@@ -5,6 +5,10 @@ import org.junit.platform.commons.logging.Logger;
 import org.junit.platform.commons.logging.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlConfig;
+import org.springframework.test.context.jdbc.SqlGroup;
+
 
 import java.util.List;
 
@@ -39,4 +43,32 @@ private static final Logger logger = LoggerFactory.getLogger(CustomerRepositoryT
              Long orderCount = (Long) object[1];
          });
     }
+    @Test
+    void findCustomerWithLastOrder(){
+        List<Object[]> objectList= customerRepository.findCustomerWithLastOrder();
+        objectList.forEach(object->{
+            Customer customer = (Customer) object[0];
+            Order order = (Order) object[1];
+            System.out.println(customer.getName()+"-"+customer.getEmail()+":::"+ order.getProduct());
+        });
+    }
+
+    @Test
+    @SqlGroup({
+            @Sql(value = "classpath:db/test.sql",
+                    config = @SqlConfig(encoding = "utf-8", separator = ";", commentPrefix = "--"),
+                    executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
+    })
+    void findCustomerOrderThanAverage(){
+        List<Customer> customersOlderThanAverage = customerRepository.findCustomerOrderThanAverage();
+        customersOlderThanAverage.forEach(result -> {
+            Customer customer = result;
+            System.out.println(customer.getName()+":::"+customer.getAge());
+            assertThat(customersOlderThanAverage).hasSize(8);
+        });
+    }
+
+
+
 }
+
