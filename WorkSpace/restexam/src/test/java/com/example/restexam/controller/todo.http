@@ -1,0 +1,8 @@
+#GET / todos
+GET http://localhost:8080/api/todos
+Accept: application/json
+
+#GET / todos / {id}
+###
+GET http://localhost:8080/api/todos/7
+Accept: application/json
