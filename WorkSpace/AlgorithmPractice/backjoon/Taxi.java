@@ -1,4 +1,4 @@
-package WorkSpace.WorkSpace.AlgorithmPractice;
+package WorkSpace.WorkSpace.AlgorithmPractice.backjoon;
 
 public class Taxi {
 public static int taxiFee(int time, int km) {

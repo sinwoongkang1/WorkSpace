@@ -1,4 +1,4 @@
-package WorkSpace.WorkSpace.AlgorithmPractice;
+package WorkSpace.WorkSpace.AlgorithmPractice.backjoon;
 
 import java.util.Arrays;
 import java.util.Scanner;

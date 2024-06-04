@@ -1,8 +1,8 @@
-package WorkSpace.WorkSpace.AlgorithmPractice;
+package WorkSpace.WorkSpace.AlgorithmPractice.backjoon;
 
 import java.util.Random;
 
-public class BaekJoonUpgrade {
+public class BaekJoon {
     static int yootSum(int[] array) {
         int sum = 0;
         for (int i = 0; i < array.length ; i++) {
@@ -42,15 +42,13 @@ public class BaekJoonUpgrade {
         int[] array2 = {a1, a2, a3, a4};
         int[] array3 = {b1, b2, b3, b4};
 
-//        array1[0]= random.nextInt(2);
-
         int e1 = yootSum(array1);
         int e2 = yootSum(array2);
         int e3 = yootSum(array3);
 
         for (int i = 0; i < array1.length; i++) {
-            System.out.print(array1[i] + " ");
-        }
+                System.out.print(array1[i] + " ");
+            }
         whatIsYoot(e1);
         for (int j = 0; j < array2.length; j++) {
             System.out.print(array2[j] + " ");

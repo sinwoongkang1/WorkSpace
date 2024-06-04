@@ -1,6 +1,4 @@
-package WorkSpace.WorkSpace.AlgorithmPractice;
-
-import java.util.Arrays;
+package WorkSpace.WorkSpace.AlgorithmPractice.Programmers;
 
 public class Card {
     public static String solution(String[] cards1, String[] cards2, String[] goal) {

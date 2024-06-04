@@ -1,4 +1,4 @@
-package WorkSpace.WorkSpace.AlgorithmPractice;
+package WorkSpace.WorkSpace.AlgorithmPractice.Programmers;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
