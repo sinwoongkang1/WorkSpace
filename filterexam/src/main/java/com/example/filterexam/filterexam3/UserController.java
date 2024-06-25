@@ -1,13 +1,10 @@
 package com.example.filterexam.filterexam3;
 
-import com.example.filterexam.filterexam2.User;
 import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -32,6 +29,31 @@ public class UserController {
 
     @GetMapping("/welcome")
     public String welcome() {
-        return "welcome";
+        User user = UserContext.getUser();
+        if (user != null) {
+            return "welcome";
+        }else
+            return "redirect:/loginform";
+
+    }
+
+    //로그인 한 사용자에게만 보여주는 페이지
+    @GetMapping("/info")
+    public String info(HttpServletRequest request, HttpServletResponse response) {
+        Cookie[] cookies = request.getCookies(); //요청이 들어오면 거기서 쿠키들을 보자
+        String auth = null;
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equals("auth")) {
+                    auth = cookie.getValue();
+                    break;
+                }
+            }
+        }
+        if (auth != null) {
+            return "info";
+        }else
+            return "redirect:/loginform";
+
     }
 }
