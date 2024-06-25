@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Board List</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .center {
+            text-align: center;
+        }
+        .write-button-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .write-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .write-button:hover {
+            background-color: #0056b3;
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #007bff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+        .pagination .current-page {
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            padding: 8px 16px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<h1 class="center">Board List</h1>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Title</th>
+        <th>CreatedAt</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="board : ${boardPage.content}">
+        <td th:text="${board.id}"></td>
+        <td th:text="${board.name}"></td>
+        <td>
+            <a th:href="@{/board/detail/{id}(id=${board.id})}" th:text="${board.title}"></a>
+        </td>
+        <td>
+            <span th:if="${board.created_at != null}" th:text="${board.created_at}"></span>
+            <span th:unless="${board.created_at != null}" th:text="${board.updated_at}"></span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<div class="pagination">
+        <span th:each="i : ${#numbers.sequence(0, boardPage.totalPages - 1)}">
+            <a th:if="${i != currentPage}" th:href="@{/board(page=${i})}" th:text="${i + 1}"></a>
+            <span th:if="${i == currentPage}" th:text="${i + 1}" class="current-page"></span>
+        </span>
+</div>
+<div class="write-button-container">
+    <a href="/board/write" class="write-button">글쓰기</a>
+</div>
+</body>
+</html>

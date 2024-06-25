@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #e6f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 50%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .btn-group {
+            text-align: center;
+        }
+        .submit-button,
+        .cancel-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .submit-button:hover,
+        .cancel-button:hover {
+            opacity: 0.8;
+        }
+        .submit-button {
+            background-color: #dc3545; /* 삭제하기 버튼 색상은 빨간색으로 변경 */
+        }
+        .cancel-button {
+            background-color: #007bff;
+        }
+    </style>
+
+</head>
+<body>
+<div class="container">
+    <h2>게시글 삭제하기</h2>
+    <form action="/board/delete" method="post">
+        <input type="hidden" id="id" name="id" th:value="${board.id}">
+        <div class="input-group">
+            <label for="password">비밀번호:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+
+        <div th:if="${error}">
+            <p style="color: red;" th:text="${error}"></p>
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" class="submit-button">삭제</button>
+            <a href="/board" class="cancel-button">취소</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>
