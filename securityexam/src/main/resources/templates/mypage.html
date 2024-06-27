@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>My page</title>
+</head>
+<body>
+<h1>My page</h1>
+<div sec:authorize="isAuthenticated()">
+    <p>안녕하세요 <sapn sec:authentication="name"></sapn> 님 !! </p>
+    <p>당신의 등급은 <sapn sec:authentication="principal.authorities"></sapn> 입니다. </p>
+    <p>상세정보 :: </p>
+    <ul>
+        <li>사용자 이름 : <span sec:authentication="principal.username"></span></li>
+        <li>계정 만료 여부 : <span sec:authentication="principal.accountNonExpired"></span></li>
+        <li>계정 잠김 여부 : <span sec:authentication="principal.accountNonLocked"></span></li>
+        <li>자격 증명 여부 : <span sec:authentication="principal.credentialsNonExpired"></span></li>
+        <li>활성부 여부 : <span sec:authentication="principal.enabled"></span></li>
+    </ul>
+
+</div>
+
+<div sec:authorize="!isAuthenticated()">
+
+    인증되지 않은 사용자를 위한 구현 부분
+</div>
+
+</body>
+</html>
